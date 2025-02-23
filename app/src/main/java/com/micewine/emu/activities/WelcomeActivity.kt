@@ -120,3 +120,10 @@ class WelcomeActivity : AppCompatActivity() {
         private var fileManagementPermission = false
     }
 }
+
+override fun onResume() {
+    super.onResume()
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        fileManagementPermission = Environment.isExternalStorageManager()
+    }
+}
