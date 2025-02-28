@@ -946,7 +946,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         @SuppressLint("SdCardPath")
-        val appRootDir = File(context.filesDir)
+        val appRootDir = File(context.filesDir.tostring())
         var ratPackagesDir = File("$appRootDir/packages")
         var appBuiltinRootfs: Boolean = false
         private val unixUsername = runCommandWithOutput("whoami").replace("\n", "")
