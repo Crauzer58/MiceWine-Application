@@ -324,7 +324,11 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     override fun onCreate(savedInstanceState: Bundle?) {
+        
         super.onCreate(savedInstanceState)
+
+        private lateinit var appRootDir: File
+        appRootDir = File(filesDir.absolutePath)
 
         EnvVars.initialize(this)
         ControllerPresetManagerFragment.initialize(this)
@@ -946,7 +950,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         @SuppressLint("SdCardPath")
-        val appRootDir = File(context.filesDir.absolutePath)
         var ratPackagesDir = File("$appRootDir/packages")
         var appBuiltinRootfs: Boolean = false
         private val unixUsername = runCommandWithOutput("whoami").replace("\n", "")
